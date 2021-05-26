@@ -1,3 +1,0 @@
-[submodule "wp-content/themes/dc-starter"]
-	path = wp-content/themes/dc-starter
-	url = git@github.com:designcontainer/dc-skeleton.git
