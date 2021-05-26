@@ -1,0 +1,41 @@
+# This action is centrally managed in https://github.com/designcontainer/.github/
+# Don't make changes to this file in this repo as they will be overwritten with changes made to the same file in above mentioned repo
+
+name: Deploy to WP Engine
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build:
+        if: "github.event.repository.name != '.github' && github.actor != 'designcontainer-bot'"
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: GitHub Deploy to WP Engine
+              uses: wpengine/github-action-wpe-site-deploy@main
+              env:
+                  WPE_ENV_NAME: ${{ github.event.repository.name }}
+                  WPE_SSHG_KEY_PUBLIC: ${{ secrets.WPE_PUBLIC_KEY_NAME }}
+                  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_PRIVATE_KEY_NAME }}
+
+    slack_notification:
+        needs: [build]
+        name: Slack Notification
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Slack Notification
+              uses: rtCamp/action-slack-notify@v2
+              env:
+                  SLACK_CHANNEL: dc-github
+                  SLACK_COLOR: ${{job.status}}
+                  SLACK_ICON: https://github.com/designcontainer.png?size=48
+                  SLACK_TITLE: Commit message
+                  SLACK_USERNAME: DC Github Bot
+                  SLACK_FOOTER: This commit has been deployed to ${{ github.event.repository.name }}
+                  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+                  MSG_MINIMAL: commit
