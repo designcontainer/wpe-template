@@ -22,6 +22,7 @@ jobs:
               uses: designcontainer/wpe-template-init@master
               with:
                   github_token: ${{ secrets.BOT_TOKEN }}
+                  theme_repo: designcontainer/dc-skeleton
                   committer_username: designcontainer-bot
                   committer_email: tech@designcontainer.no
                   commit_message: 'CI: Update global workflows'
