@@ -20,3 +20,8 @@ jobs:
 
             - name: Setup Template
               uses: designcontainer/wpe-template-init@master
+              with:
+                  github_token: ${{ secrets.BOT_TOKEN }}
+                  committer_username: designcontainer-bot
+                  committer_email: tech@designcontainer.no
+                  commit_message: 'CI: Update global workflows'
