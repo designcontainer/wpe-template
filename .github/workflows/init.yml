@@ -17,4 +17,4 @@ jobs:
                   theme_repo: designcontainer/dc-skeleton
                   committer_username: designcontainer-bot
                   committer_email: tech@designcontainer.no
-                  commit_message: 'CI: Update global workflows'
+                  commit_message: 'CI: Repo initialization for WP Engine install'
