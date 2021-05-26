@@ -1,7 +1,6 @@
 # Setup guide
 
 ## Setup WP Engine install
-## Create a WP Engine install
 No need to use any template here. Just create a blank install with your desired install name.
 
 ## Setup repository
