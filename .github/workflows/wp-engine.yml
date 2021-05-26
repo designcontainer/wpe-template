@@ -1,5 +1,6 @@
 # This action is centrally managed in https://github.com/designcontainer/.github/
-# Don't make changes to this file in this repo as they will be overwritten with changes made to the same file in above mentioned repo
+# Don't make changes to this file outside of the .github repository! 
+# Files will get overwritten with changes made to the same file in the above mentioned repo
 
 name: Deploy to WP Engine
 
@@ -10,7 +11,7 @@ on:
 
 jobs:
     build:
-        if: "github.event.repository.name != '.github' && github.actor != 'designcontainer-bot'"
+        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template' && github.actor != 'designcontainer-bot'"
         runs-on: ubuntu-latest
 
         steps:
