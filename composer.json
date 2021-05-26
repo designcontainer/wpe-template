@@ -1,6 +1,6 @@
 {
-	"name": "designcontaineroslo/site",
-	"description": "Site Name",
+	"name": "designcontainer/replace_with_repo_name",
+	"description": "A Design Container Website",
 	"repositories":[
 		{
 			"type":"composer",
