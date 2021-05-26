@@ -1,4 +1,4 @@
-name: Init Project
+name: Template initialization helper
 
 on: create
 
