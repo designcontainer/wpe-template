@@ -7,6 +7,10 @@
 			"url":"https://wpackagist.org"
 		},
 		{
+			"type": "vcs",
+			"url": "https://github.com/designcontainer/passnado"
+		},
+		{
 			"type": "package",
 			"package": {
 				"name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -24,6 +28,7 @@
 		"wpackagist-plugin/autodescription":"*",
 		"wpackagist-plugin/wp-nested-pages":"*",
 		"wpackagist-plugin/regenerate-thumbnails":"*",
+		"designcontainer/passnado": "*",
 		"ffraenz/private-composer-installer": "^5.0",
 		"composer/installers":"v1.0.6"
 	},
