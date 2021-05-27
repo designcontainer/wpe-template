@@ -14,6 +14,7 @@ jobs:
                   github_token: ${{ secrets.BOT_TOKEN }}
                   workflow_file: init.yml
                   theme_repo: designcontainer/dc-skeleton
+                  topics_to_set: site,wpengine,global-ci
                   committer_username: designcontainer-bot
                   committer_email: tech@designcontainer.no
                   commit_message: 'CI: Repo initialization for WP Engine install'
