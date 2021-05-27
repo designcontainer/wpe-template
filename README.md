@@ -15,3 +15,9 @@ After you have recieved confirmation from WP Engine that your install has finish
 ### ⚠️ Setting repository name
 
 It is important that your repository name matches your WP Engine install name, as it will be used for directly establishing a connection with the install using the wp-engine workflow.
+
+## After initializing repository
+
+### ⌛ Wait before cloning!
+
+There is a helper action working to add some aditional files to the repository. **Give this a minute to finish.** You should see a new commit from @designcontainer-bot when the workflow has finished.
