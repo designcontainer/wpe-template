@@ -1,19 +1,18 @@
-name: Template initialization helper
+name: init
 
-on: create
+on: push
 
 jobs:
-    build:
-        if: github.ref == 'refs/heads/master'
+    init:
         runs-on: ubuntu-latest
-
+        if: github.repository != 'designcontainer/wpe-template'
         steps:
             - uses: actions/checkout@v2
-
             - name: Setup Template
               uses: designcontainer/wpe-template-helper@master
               with:
                   github_token: ${{ secrets.BOT_TOKEN }}
+                  workflow_file: init.yml
                   theme_repo: designcontainer/dc-skeleton
                   committer_username: designcontainer-bot
                   committer_email: tech@designcontainer.no
