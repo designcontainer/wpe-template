@@ -11,7 +11,7 @@ on:
 
 jobs:
     build:
-        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template' && github.event.repository.name != '.github' && github.event.head.commit-message != 'CI: Update global workflows'"
+        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template' && github.event.repository.name != '.github' && !contains(github.event.head_commit.message, 'global workflows')"
         runs-on: ubuntu-latest
 
         steps:
