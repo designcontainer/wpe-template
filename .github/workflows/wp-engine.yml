@@ -1,6 +1,6 @@
 # This action is centrally managed in https://github.com/designcontainer/.github/
 # Don't make changes to this file outside of the .github repository!
-# Files will get overwritten with changes made to the same file in the above mentioned repo.
+# Files will get overwritten with changes made to the same file in the above mentioned repository.
 
 name: Deploy to WP Engine & Notify Slack
 
