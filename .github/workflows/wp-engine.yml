@@ -2,7 +2,7 @@
 # Don't make changes to this file outside of the .github repository!
 # Files will get overwritten with changes made to the same file in the above mentioned repo.
 
-name: Deploy to WP Engine
+name: Deploy to WP Engine & Notify Slack
 
 on:
     push:
