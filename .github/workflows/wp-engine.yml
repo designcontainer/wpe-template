@@ -11,7 +11,7 @@ on:
 
 jobs:
     build:
-        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template' && !contains(github.event.head_commit.message, '[skip deploy]')"
+        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template' && !contains(github.event.head_commit.message, '[skip deploy]') && !contains(github.event.head_commit.message, '[skip-deploy]')"
         runs-on: ubuntu-latest
 
         steps:
