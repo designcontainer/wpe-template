@@ -13,7 +13,9 @@ on:
 
 jobs:
     build:
+        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template' && !contains(github.event.head_commit.message, '[skip deploy]') && !contains(github.event.head_commit.message, '[skip-deploy]')"
         runs-on: ubuntu-latest
+
         steps:
             - uses: actions/checkout@v2
             - name: Get install for deployer by branch
