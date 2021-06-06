@@ -8,26 +8,29 @@ on:
     push:
         branches:
             - master
+            - staging
+            - development
 
 jobs:
     build:
-        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template' && !contains(github.event.head_commit.message, '[skip deploy]') && !contains(github.event.head_commit.message, '[skip-deploy]')"
         runs-on: ubuntu-latest
-
         steps:
+            - uses: actions/checkout@v2
+            - name: Get install for deployer by branch
+              id: get_install
+              uses: designcontainer/wpe-install-by-branch@master
+              with:
+                  wpe_api_key_pub: ${{ secrets.WPE_API_USERNAME }}
+                  wpe_api_key_priv: ${{ secrets.WPE_API_PASSWORD }}
+
             - uses: actions/checkout@v2
             - name: GitHub Deploy to WP Engine
               uses: wpengine/github-action-wpe-site-deploy@main
               env:
-                  WPE_ENV_NAME: ${{ github.event.repository.name }}
+                  WPE_ENV_NAME: ${{ steps.get_install.outputs.install }}
                   WPE_SSHG_KEY_PUBLIC: ${{ secrets.WPE_PUBLIC_KEY_NAME }}
                   WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_PRIVATE_KEY_NAME }}
 
-    slack_notification:
-        needs: [build]
-        name: Slack Notification
-        runs-on: ubuntu-latest
-        steps:
             - uses: actions/checkout@v2
             - name: Slack Notification
               uses: rtCamp/action-slack-notify@v2
