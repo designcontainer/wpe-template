@@ -8,6 +8,10 @@
 		},
 		{
 			"type": "vcs",
+			"url": "https://github.com/designcontainer/block-json-parser"
+		},
+		{
+			"type": "vcs",
 			"url": "https://github.com/designcontainer/advanced-custom-fields-pro"
 		},
 		{
@@ -21,6 +25,7 @@
 		
 	],
 	"require": {
+		"designcontainer/block-json-parser": "*",
 		"designcontainer/advanced-custom-fields-pro": "*",
 		"designcontainer/cookiebot-popup": "*",
 		"designcontainer/passnado": "*",
