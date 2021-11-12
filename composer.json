@@ -8,35 +8,30 @@
 		},
 		{
 			"type": "vcs",
-			"url": "https://github.com/designcontainer/passnado"
+			"url": "https://github.com/designcontainer/advanced-custom-fields-pro"
 		},
 		{
-			"type": "package",
-			"package": {
-				"name": "advanced-custom-fields/advanced-custom-fields-pro",
-				"version": "5.9.5",
-				"type": "wordpress-plugin",
-				"dist": {
-					"type": "zip",
-					"url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k={%PLUGIN_ACF_KEY}"
-				}
-			}
+			"type": "vcs",
+			"url": "https://github.com/designcontainer/cookiebot-popup"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/designcontainer/passnado"
 		}
+		
 	],
 	"require": {
-		"advanced-custom-fields/advanced-custom-fields-pro":"*",
+		"designcontainer/advanced-custom-fields-pro": "*",
+		"designcontainer/cookiebot-popup": "*",
+		"designcontainer/passnado": "*",
+		"wpackagist-plugin/cookiebot": "*",
 		"wpackagist-plugin/autodescription":"*",
 		"wpackagist-plugin/wp-nested-pages":"*",
 		"wpackagist-plugin/regenerate-thumbnails":"*",
-		"designcontainer/passnado": "*",
 		"ffraenz/private-composer-installer": "^5.0",
 		"composer/installers":"v1.0.6"
 	},
 	"extra": {
-		"private-composer-installer": {
-			"dotenv-path": ".",
-			"dotenv-name": ".env"
-		},
 		"installer-paths": {
 			"wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
 			"wp-content/plugins/{$name}/": ["type:wordpress-plugin"]
