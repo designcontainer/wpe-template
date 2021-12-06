@@ -34,7 +34,7 @@
 		"wpackagist-plugin/wp-nested-pages":"*",
 		"wpackagist-plugin/regenerate-thumbnails":"*",
 		"ffraenz/private-composer-installer": "^5.0",
-		"composer/installers":"v1.0.6"
+		"composer/installers": "v1.9.0"
 	},
 	"extra": {
 		"installer-paths": {
