@@ -5,10 +5,12 @@
 name: Generate/update Composer file on schedule
 
 on:
-    workflow_dispatch:
+    schedule:
+        - cron: '0 18 * * *'
     
 jobs:
     replicate_changes:
+        if: "github.event.repository.name != '.github' && github.event.repository.name != 'wpe-template'"
         runs-on: ubuntu-latest
 
         steps:
