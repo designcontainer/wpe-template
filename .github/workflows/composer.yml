@@ -1,11 +1,12 @@
-# This action is centrally managed in https://github.com/designcontainer/.github/
+# This action is centrally managed in https://github.com/designcontainer/.github/.
 # Don't make changes to this file outside of the .github repository!
 # Files will get overwritten with changes made to the same file in the above mentioned repository.
 
 name: Generate/update Composer file on schedule
 
 on:
-    workflow_dispatch:
+    schedule:
+        - cron: '0 18 * * *'
     
 jobs:
     replicate_changes:
@@ -13,8 +14,10 @@ jobs:
 
         steps:
             - name: Checkout repository
+              if: github.repository != 'designcontainer/.github'
               uses: actions/checkout@v2
             - name: Generate/update Composer file
+              if: github.repository != 'designcontainer/.github'
               uses: designcontainer/workflow-composer-handler@master
               with:
                   github_token: ${{ secrets.BOT_TOKEN }}
