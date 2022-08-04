@@ -27,7 +27,15 @@ jobs:
 
             - uses: actions/checkout@v2
             - name: GitHub Deploy to WP Engine
-              uses: wpengine/github-action-wpe-site-deploy@v1.3
+              uses: wpengine/github-action-wpe-site-deploy@v2.3.5
+              with:
+                  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_PRIVATE_KEY_NAME }}
+                  PRD_BRANCH: master
+                  PRD_ENV: ${{ steps.get_install.outputs.install }}
+                  STG_BRANCH: staging
+                  STG_ENV: ${{ steps.get_install.outputs.install }}
+                  DEV_BRANCH: development
+                  DEV_ENV: ${{ steps.get_install.outputs.install }}
               env:
                   WPE_ENV_NAME: ${{ steps.get_install.outputs.install }}
                   WPE_SSHG_KEY_PUBLIC: ${{ secrets.WPE_PUBLIC_KEY_NAME }}
