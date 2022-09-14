@@ -61,7 +61,7 @@ jobs:
         run: composer update
 
       - name: Deploy to WPE
-        run: git push -f wpe HEAD:main
+        run: git push -f wpe
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
