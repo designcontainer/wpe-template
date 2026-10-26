@@ -37,11 +37,19 @@ jobs:
           ssh-add # Not sure if this is needed :P
 
       - name: Set git stuff
+        env:
+          WPE_INSTALL: ${{ steps.get_install.outputs.install }}
+          WPE_ENV: ${{ steps.get_install.outputs.environment }}
+          GIT_BRANCH: ${{ github.ref_name }}
         run: |
           git config --global user.email 'tech@designcontainer.no'
           git config --global user.name 'designcontainer-bot'
           git config core.sshCommand "ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=~/.ssh/known_hosts"
-          git remote add wpe git@git.wpengine.com:production/${{ steps.get_install.outputs.install }}.git
+          DEPLOY_ENV="${WPE_ENV:-$GIT_BRANCH}"
+          if [ "$GIT_BRANCH" = "master" ] || [ "$GIT_BRANCH" = "main" ]; then
+            DEPLOY_ENV=production
+          fi
+          git remote add wpe "git@git.wpengine.com:${DEPLOY_ENV}/${WPE_INSTALL}.git"
 
       - name: PHP Lint
         if: "contains(github.event.head_commit.message, '[php-lint]') "
